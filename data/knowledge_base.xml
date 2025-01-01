@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <alimente>
+    
+        <categorie name="mic_dejun">
+            <aliment nume="ovaz" proteine="17" carbohidrati="66" grasimi="7" calorii="389" />
+            <aliment nume="ou" proteine="13" carbohidrati="1" grasimi="11" calorii="155" />
+            <aliment nume="paine_integrala" proteine="9" carbohidrati="49" grasimi="3" calorii="265" />
+            <aliment nume="iaurt" proteine="5" carbohidrati="4" grasimi="3" calorii="59" />
+            <aliment nume="avocado" proteine="2" carbohidrati="9" grasimi="15" calorii="160" />
+            <aliment nume="quinoa" proteine="14" carbohidrati="64" grasimi="6" calorii="368" />
+            <aliment nume="banane" proteine="1" carbohidrati="23" grasimi="0" calorii="89" />
+            <aliment nume="lapte" proteine="3" carbohidrati="5" grasimi="1" calorii="42" />
+            <aliment nume="miere" proteine="0" carbohidrati="82" grasimi="0" calorii="304" />
+            <aliment nume="unt_de_arahide" proteine="25" carbohidrati="20" grasimi="50" calorii="588" />
+            <aliment nume="clatite" proteine="6" carbohidrati="40" grasimi="7" calorii="230" />
+            <aliment nume="fructe_uscate" proteine="3" carbohidrati="65" grasimi="1" calorii="300" />
+            <aliment nume="chia" proteine="17" carbohidrati="42" grasimi="31" calorii="486" />
+            <aliment nume="gem" proteine="0" carbohidrati="65" grasimi="0" calorii="250" />
+            <aliment nume="ceai_verde" proteine="0" carbohidrati="0" grasimi="0" calorii="2" />
+        </categorie>
+
+        <categorie name="pranz">
+            <aliment nume="broccoli" proteine="3" carbohidrati="7" grasimi="0" calorii="34" />
+            <aliment nume="pui" proteine="27" carbohidrati="0" grasimi="14" calorii="239" />
+            <aliment nume="orez" proteine="2" carbohidrati="28" grasimi="0" calorii="130" />
+            <aliment nume="cartofi" proteine="2" carbohidrati="17" grasimi="0" calorii="77" />
+            <aliment nume="morcovi" proteine="1" carbohidrati="10" grasimi="0" calorii="41" />
+            <aliment nume="avocado" proteine="2" carbohidrati="9" grasimi="15" calorii="160" />
+            <aliment nume="linte" proteine="9" carbohidrati="20" grasimi="0" calorii="116" />
+            <aliment nume="branza_cottage" proteine="11" carbohidrati="3" grasimi="4" calorii="98" />
+            <aliment nume="dovlecei" proteine="1" carbohidrati="3" grasimi="0" calorii="16" />
+            <aliment nume="porumb" proteine="3" carbohidrati="19" grasimi="1" calorii="86" />
+            <aliment nume="spanac" proteine="3" carbohidrati="1" grasimi="0" calorii="23" />
+            <aliment nume="vinete" proteine="1" carbohidrati="6" grasimi="0" calorii="25" />
+            <aliment nume="ardei_gras" proteine="1" carbohidrati="6" grasimi="0" calorii="30" />
+            <aliment nume="supa_linte" proteine="8" carbohidrati="15" grasimi="4" calorii="160" />
+            <aliment nume="paste_integrale" proteine="5" carbohidrati="30" grasimi="1" calorii="150" />
+            <aliment nume="ficat_de_pui" proteine="17" carbohidrati="1" grasimi="4" calorii="130" />
+        </categorie>
+
+        <categorie name="cina">
+            <aliment nume="somon" proteine="20" carbohidrati="0" grasimi="13" calorii="208" />
+            <aliment nume="cartofi" proteine="2" carbohidrati="17" grasimi="0" calorii="77" />
+            <aliment nume="morcovi" proteine="1" carbohidrati="10" grasimi="0" calorii="41" />
+            <aliment nume="avocado" proteine="2" carbohidrati="9" grasimi="15" calorii="160" />
+            <aliment nume="nuci" proteine="15" carbohidrati="14" grasimi="65" calorii="654" />
+            <aliment nume="tofu" proteine="8" carbohidrati="2" grasimi="4" calorii="76" />
+            <aliment nume="ciuperci" proteine="3" carbohidrati="4" grasimi="0" calorii="22" />
+            <aliment nume="sparanghel" proteine="2" carbohidrati="4" grasimi="0" calorii="20" />
+            <aliment nume="branza_feta" proteine="14" carbohidrati="4" grasimi="21" calorii="264" />
+            <aliment nume="mazare" proteine="5" carbohidrati="14" grasimi="0" calorii="81" />
+        </categorie>
+    </alimente>
+
+    <activitati>
+        <activitate nume="sedentar" pal="1.5" />
+        <activitate nume="activ" pal="1.8" />
+        <activitate nume="foarte_activ" pal="2.0" />
+    </activitati>
+
+    <reguli>
+        <regula>
+            <if>Gen = femeie</if>
+            <then>RataMetabolica = 665.1 + (9.563 * Greutate) + (1.85 * Inaltime) - (4.676 * Varsta)</then>
+        </regula>
+        <regula>
+            <if>Gen = barbat</if>
+            <then>RataMetabolica = 66.47 + (13.75 * Greutate) + (5 * Inaltime) - (6.75 * Varsta)</then>
+        </regula>
+
+        <regula>
+            <if>RataMetabolica calculata AND Activitate = sedentar</if>
+            <then>NecesarCaloric = RataMetabolica * 1.5</then>
+        </regula>
+        <regula>
+            <if>RataMetabolica calculata AND Activitate = activ</if>
+            <then>NecesarCaloric = RataMetabolica * 1.8</then>
+        </regula>
+        <regula>
+            <if>RataMetabolica calculata AND Activitate = foarte_activ</if>
+            <then>NecesarCaloric = RataMetabolica * 2.0</then>
+        </regula>
+
+        <regula>
+            <if>NecesarCaloric calculata</if>
+            <then>Carbohidrati = (0.55 * NecesarCaloric) / 4, Proteine = (0.15 * NecesarCaloric) / 4, Grasimi = (0.3 * NecesarCaloric) / 9</then>
+        </regula>
+
+    </reguli>
+</data>
